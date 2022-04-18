@@ -17,6 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('nome', 80);
             $table->string('descricao', 100);
+            $table->unsignedBigInteger('id_categoria')->nullable();
+
+            $table->foreign('id_categoria')->references('id')->on('categorias');
             $table->timestamps();
         });
     }
